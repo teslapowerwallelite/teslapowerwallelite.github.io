@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Redirecting...</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+    <h3 id="status">Authorizing...</h3>
+    <script>
+        const urlParams = new URLSearchParams(window.location.search);
+        const code = urlParams.get('code');
+        const state = urlParams.get('state');
+        const statusMsg = document.getElementById("status");
+
+        if (code) {
+            const isAndroid = /Android/i.test(navigator.userAgent);
+            const isTabletDesktopMode = (navigator.maxTouchPoints > 1 && !/Windows/i.test(navigator.userAgent));
+
+            if (isAndroid || isTabletDesktopMode) {
+                // Mobile/Tablet Logic
+                window.location.replace("teslapowerwall://callback" + window.location.search);
+                setTimeout(() => { console.log("App did not catch the intent."); }, 2000);
+            } else {
+                // --- WINDOWS LOGIC START ---
+                
+                const localUrl = "http://localhost:5000/?code=" + code + "&state=" + state;
+
+                // Attempt 1: Send data in background (AJAX) so we can close the window
+                fetch(localUrl, { mode: 'no-cors' }) // 'no-cors' allows sending data even if localhost doesn't have CORS set up
+                    .then(() => {
+                        // Request sent. Now try to close the tab.
+                        statusMsg.innerText = "Success! You can close this tab now.";
+                        
+                        // Try standard close
+                        window.close(); 
+                        
+                        // Try "hack" close (works in some browser versions)
+                        window.open('','_self').close(); 
+                    })
+                    .catch((err) => {
+                        // Attempt 2: If fetch fails, fallback to the original Redirect method
+                        console.error("Background send failed, redirecting...", err);
+                        window.location.replace(localUrl);
+                    });
+                // --- WINDOWS LOGIC END ---
+            }
+        } else {
+            document.body.innerHTML = "<h3>Error: No authorization code received.</h3>";
+        }
+    </script>
+</body>
+</html>

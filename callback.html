@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Redirecting...</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+    <script>
+        const urlParams = new URLSearchParams(window.location.search);
+        const code = urlParams.get('code');
+        const state = urlParams.get('state');
+
+        if (code) {
+            // Enhanced Detection:
+            // 1. Standard Regex for Android
+            // 2. Check for MacIntel + Touch (how iPads and modern Android tablets in "Desktop Mode" report)
+            const isAndroid = /Android/i.test(navigator.userAgent);
+            const isTabletDesktopMode = (navigator.maxTouchPoints > 1 && !/Windows/i.test(navigator.userAgent));
+
+            if (isAndroid || isTabletDesktopMode) {
+                // Redirect to the App using the Custom URI Scheme
+                window.location.replace("teslapowerwall://callback" + window.location.search);
+                
+                // Fallback: If the app doesn't open within 2 seconds, 
+                // it might be because the custom scheme failed.
+                setTimeout(() => {
+                    console.log("App did not catch the intent.");
+                }, 2000);
+
+            } else {
+                // Windows / Actual Desktop: Send to the local listener
+                window.location.replace("http://localhost:5000/?code=" + code + "&state=" + state);
+            }
+        } else {
+            document.body.innerHTML = "<h3>Error: No authorization code received.</h3>";
+        }
+    </script>
+</body>
+</html>
