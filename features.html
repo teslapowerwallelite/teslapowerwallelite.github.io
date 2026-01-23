@@ -5,48 +5,86 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Features | Tesla Powerwall Elite</title>
     <style>
-        /* Reusing your Elite Dark Theme colors */
         body { font-family: "Segoe UI", sans-serif; background-color: #000; color: #fff; margin: 0; padding: 40px 20px; line-height: 1.6; }
-        .container { max-width: 1000px; margin: 0 auto; }
-        h1 { font-weight: 300; text-transform: uppercase; letter-spacing: 4px; border-bottom: 1px solid #333; padding-bottom: 20px; }
+        .container { max-width: 1100px; margin: 0 auto; }
+        h1 { font-weight: 300; text-transform: uppercase; letter-spacing: 4px; border-bottom: 1px solid #333; padding-bottom: 20px; text-align: center; }
+        h2 { font-weight: 400; text-transform: uppercase; font-size: 1.4rem; color: #0078d4; margin-top: 0; }
         
-        /* Feature Grid Layout */
-        .feature-item { display: flex; align-items: center; gap: 40px; margin-bottom: 80px; animation: fadeIn 1s ease-in; }
+        /* Alternating Feature Grid */
+        .feature-item { display: flex; align-items: center; gap: 60px; margin-bottom: 100px; animation: fadeIn 1s ease-in; }
         .feature-item:nth-child(even) { flex-direction: row-reverse; }
-        .feature-text { flex: 1; }
-        .feature-image { flex: 1; border: 1px solid #444; border-radius: 8px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.5); }
-        .feature-image img { width: 100%; display: block; }
+        .feature-text { flex: 1.2; }
+        .feature-image { flex: 1; background: #111; border: 1px solid #333; border-radius: 8px; height: 250px; display: flex; align-items: center; justify-content: center; color: #444; font-size: 0.8rem; text-transform: uppercase; }
         
-        .badge { background: #0078d4; color: #fff; padding: 4px 12px; border-radius: 20px; font-size: 0.8rem; text-transform: uppercase; margin-bottom: 10px; display: inline-block; }
+        .badge { background: #333; color: #aaa; padding: 4px 12px; border-radius: 20px; font-size: 0.7rem; text-transform: uppercase; margin-bottom: 15px; display: inline-block; letter-spacing: 1px; }
+        .back-link { display: inline-block; margin-bottom: 30px; color: #0078d4; text-decoration: none; font-size: 0.9rem; }
+        .back-link:hover { text-decoration: underline; }
+
         @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
     </style>
 </head>
 <body>
 <div class="container">
-    <a href="index.html" style="color: #aaa; text-decoration: none;">&larr; Back to Home</a>
-    <h1>Elite Features</h1>
+    <a href="index.html" class="back-link">&larr; Return to Dashboard</a>
+    <h1>Advanced Capabilities</h1>
 
-    <div class="feature-item">
+
+	<div class="feature-item">
         <div class="feature-text">
-            <span class="badge">Automation</span>
-            <h2>Cheeky Charge Management</h2>
-            <p>Maximize your savings by automating your Powerwall behavior during off-peak windows. Elite automatically adjusts your battery to take advantage of the lowest rates available from your utility provider.</p>
+            <span class="badge">The Command Center</span>
+            <h2>Intuitive Elite Dashboard</h2>
+            <p>Experience the most comprehensive view of your energy ecosystem. Our main interface provides a <strong>high-resolution, real-time power flow</strong> HUD. Monitor solar yield, battery health, and grid interaction with zero latency. Designed for clarity, the dashboard ensures you understand your home's energy status at a single glance.</p>
         </div>
         <div class="feature-image">
-            <img src="screenshots/cheeky-charge.png" alt="Cheeky Charge Dashboard">
+            <img src="screenshots/Main Dashboard.png" alt="Tesla Powerwall Elite Main Dashboard" style="width: 100%; border-radius: 4px;">
         </div>
+    </div>
+    <div class="feature-item">
+        <div class="feature-text">
+            <span class="badge">Immediate Control</span>
+            <h2>Forced Solar & Active Charge</h2>
+            <p>Take absolute command of your energy storage. <strong>Forced Solar Charge</strong> prioritizes clean energy capture regardless of grid export rules. Need power fast? <strong>Forced Active Charge</strong> draws from the grid at maximum velocity to prepare for upcoming outages or high-use events.</p>
+        </div>
+        <div class="feature-image"><img src="screenshots/Manual Override Panel.png" alt="Manual Override Panel" style="width: 100%; border-radius: 4px;"></div>
     </div>
 
     <div class="feature-item">
         <div class="feature-text">
-            <span class="badge">Intelligence</span>
-            <h2>Advanced Energy Insights</h2>
-            <p>Go beyond the basic stats. See high-resolution data for solar production, home usage, and grid interaction. Monitor your State of Charge (SoC) with precision accuracy.</p>
+            <span class="badge">Smart Analytics</span>
+            <h2>Precision Charge Timing</h2>
+            <p>Know exactly when you'll be ready. Elite provides real-time estimates for <strong>Time to Full</strong> and <strong>Time to Empty</strong> based on your current home load. Review your performance with a <strong>Daily Energy Summary</strong> that simplifies complex data into actionable insights.</p>
+        </div>
+        <div class="feature-image"><img src="screenshots/Live Battery Stats.png" alt="Live Battery Stats" style="width: 100%; border-radius: 4px;"></div>
+    </div>
+
+    <div class="feature-item">
+        <div class="feature-text">
+            <span class="badge">Convenience</span>
+            <h2>Always-On Command Center</h2>
+            <p>Designed for dedicated monitoring stations. Enable <strong>Screen Always On</strong> to transform any device into a permanent wall-mounted energy terminal. With <strong>Persistent Login</strong> and <strong>Adjustable Text Sizes</strong>, your data is always visible and readable from across the room.</p>
+        </div>
+        <div class="feature-image"><img src="screenshots/Display Settings.png" alt="Display Settings" style="width: 100%; border-radius: 4px;"></div>
+    </div>
+
+    <div class="feature-item">
+        <div class="feature-text">
+            <span class="badge">Professional Management</span>
+            <h2>Multi-Site Monitoring</h2>
+            <p>Manage your entire energy footprint from one interface. Seamlessly toggle between multiple properties or view a unified fleet summary. Elite also features an <strong>Adjustable Shoulder Window</strong>—because convenience matters more than just the cheapest rate.</p>
+        </div>
+        <div class="feature-image"><img src="screenshots/Property Selection.png" alt="Property Selection" style="width: 100%; border-radius: 4px;"></div>
+    </div>
+	<div class="feature-item">
+        <div class="feature-text">
+            <span class="badge">Data Intelligence</span>
+            <h2>Deep Analytics & CSV Export</h2>
+            <p>Your energy data belongs to you. Elite captures high-resolution <strong>historical graphs</strong> of your solar production, grid usage, and battery cycles. Need to run your own numbers? Use the <strong>one-click CSV Export</strong> to download your raw energy logs. Perfect for spreadsheet wizards who want to track long-term ROI or audit utility bill accuracy.</p>
         </div>
         <div class="feature-image">
-            <img src="screenshots/monitoring.png" alt="Real-time Monitoring Screen">
+            <img src="screenshots/Analytics and Export.png" alt="Analytics Graphs and CSV Export" style="width: 100%; border-radius: 4px;">
         </div>
     </div>
+	
 </div>
 </body>
 </html>
