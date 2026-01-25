@@ -5,20 +5,96 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Features | Tesla Powerwall Elite</title>
     <style>
-        body { font-family: "Segoe UI", sans-serif; background-color: #000; color: #fff; margin: 0; padding: 40px 20px; line-height: 1.6; }
+        body { 
+            font-family: "Segoe UI", sans-serif; 
+            background-color: #000; 
+            color: #fff; 
+            margin: 0; 
+            padding: 40px 20px; 
+            line-height: 1.6; 
+            box-sizing: border-box;
+        }
+        
         .container { max-width: 1100px; margin: 0 auto; }
-        h1 { font-weight: 300; text-transform: uppercase; letter-spacing: 4px; border-bottom: 1px solid #333; padding-bottom: 20px; text-align: center; }
+        
+        h1 { 
+            font-weight: 300; 
+            text-transform: uppercase; 
+            letter-spacing: 4px; 
+            border-bottom: 1px solid #333; 
+            padding-bottom: 20px; 
+            text-align: center; 
+            font-size: 2rem;
+        }
+
         h2 { font-weight: 400; text-transform: uppercase; font-size: 1.4rem; color: #0078d4; margin-top: 0; }
         
         /* Alternating Feature Grid */
-        .feature-item { display: flex; align-items: center; gap: 60px; margin-bottom: 100px; animation: fadeIn 1s ease-in; }
+        .feature-item { 
+            display: flex; 
+            align-items: center; 
+            gap: 60px; 
+            margin-bottom: 100px; 
+            animation: fadeIn 1s ease-in; 
+        }
+
         .feature-item:nth-child(even) { flex-direction: row-reverse; }
+        
         .feature-text { flex: 1.2; }
-        .feature-image { flex: 1; background: #111; border: 1px solid #333; border-radius: 8px; height: 250px; display: flex; align-items: center; justify-content: center; color: #444; font-size: 0.8rem; text-transform: uppercase; }
+        
+        .feature-image { 
+            flex: 1; 
+            background: #111; 
+            border: 1px solid #333; 
+            border-radius: 8px; 
+            display: flex; 
+            align-items: center; 
+            justify-content: center; 
+            overflow: hidden; /* Ensures images stay inside the box */
+        }
+
+        .feature-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+            border-radius: 4px;
+        }
         
         .badge { background: #333; color: #aaa; padding: 4px 12px; border-radius: 20px; font-size: 0.7rem; text-transform: uppercase; margin-bottom: 15px; display: inline-block; letter-spacing: 1px; }
         .back-link { display: inline-block; margin-bottom: 30px; color: #0078d4; text-decoration: none; font-size: 0.9rem; }
         .back-link:hover { text-decoration: underline; }
+
+        .tip-box {
+            background: #111;
+            border-left: 3px solid #0078d4;
+            padding: 15px;
+            margin-top: 15px;
+            font-size: 0.9rem;
+        }
+
+        /* MOBILE FIXES */
+        @media (max-width: 850px) {
+            body { padding: 20px 15px; }
+            
+            h1 { font-size: 1.5rem; letter-spacing: 2px; }
+
+            .feature-item, 
+            .feature-item:nth-child(even) { 
+                flex-direction: column; /* Stacks text on top of image */
+                gap: 20px;
+                margin-bottom: 60px;
+                text-align: left;
+            }
+
+            .feature-text, .feature-image {
+                width: 100%;
+                flex: none;
+            }
+
+            .feature-image {
+                height: auto; /* Allow image to dictate height on mobile */
+            }
+        }
 
         @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
     </style>
@@ -28,81 +104,74 @@
     <a href="index.html" class="back-link">&larr; Return to Dashboard</a>
     <h1>Advanced Capabilities</h1>
 
-
-	<div class="feature-item">
+    <div class="feature-item">
         <div class="feature-text">
             <span class="badge">The Command Center</span>
             <h2>Intuitive Elite Dashboard</h2>
-            <p>Experience the most comprehensive view of your energy ecosystem. Our main interface provides a <strong>high-resolution, real-time power flow</strong> HUD. Monitor solar yield, battery health, and grid interaction with zero latency. Designed for clarity, the dashboard ensures you understand your home's energy status at a single glance.</p>
+            <p>Experience the most comprehensive view of your energy ecosystem. Our main interface provides a <strong>high-resolution, real-time power flow</strong> HUD. Monitor solar yield, battery health, and grid interaction with zero latency.</p>
         </div>
         <div class="feature-image">
-            <img src="screenshots/Main Dashboard.png" alt="Tesla Powerwall Elite Main Dashboard" style="width: 100%; border-radius: 4px;">
+            <img src="screenshots/Main Dashboard.png" alt="Tesla Powerwall Elite Main Dashboard">
         </div>
     </div>
+
     <div class="feature-item">
         <div class="feature-text">
             <span class="badge">Immediate Control</span>
             <h2>Forced Solar & Active Charge</h2>
-            <p>Take absolute command of your energy storage. <strong>Forced Solar Charge</strong> prioritizes clean energy capture regardless of grid export rules. Need power fast? <strong>Forced Active Charge</strong> draws from the grid at maximum velocity to prepare for upcoming outages or high-use events.</p>
-                    <p>Elite also features an <strong>Adjustable Shoulder Window</strong>—allowing you to customize peak/off-peak timing because convenience matters more than just the cheapest rate.</p>
+            <p>Take absolute command of your energy storage. <strong>Forced Solar Charge</strong> prioritizes clean energy capture regardless of grid export rules. Need power fast? <strong>Forced Active Charge</strong> draws from the grid at maximum velocity.</p>
        </div>
-        <div class="feature-image"><img src="screenshots/Manual Override Panel.png" alt="Manual Override Panel" style="width: 100%; border-radius: 4px;"></div>
+        <div class="feature-image"><img src="screenshots/Manual Override Panel.png" alt="Manual Override Panel"></div>
     </div>
 
     <div class="feature-item">
         <div class="feature-text">
             <span class="badge">Smart Analytics</span>
             <h2>Precision Charge Timing</h2>
-            <p>Know exactly when you'll be ready. Elite provides real-time estimates for <strong>Time to Full</strong> and <strong>Time to Empty</strong> based on your current home load. Review your performance with a <strong>Daily Energy Summary</strong> that simplifies complex data into actionable insights.</p>
+            <p>Know exactly when you'll be ready. Elite provides real-time estimates for <strong>Time to Full</strong> and <strong>Time to Empty</strong> based on your current home load.</p>
         </div>
-        <div class="feature-image"><img src="screenshots/Live Battery Stats.png" alt="Live Battery Stats" style="width: 100%; border-radius: 4px;"></div>
+        <div class="feature-image"><img src="screenshots/Live Battery Stats.png" alt="Live Battery Stats"></div>
     </div>
 
     <div class="feature-item">
         <div class="feature-text">
             <span class="badge">Convenience</span>
-            <<h2>Always-On Command Center</h2>
-            <p>Designed for dedicated monitoring stations. Enable <strong>Screen Always On</strong> to transform any device into a permanent wall-mounted energy terminal. With <strong>Persistent Login</strong> and <strong>Adjustable Text Sizes</strong>, your data is always visible and readable from across the room.</p>
-                <strong>Viewing Mode:</strong> Simply <strong>Double Tap</strong> the dashboard to enter a clean, focused viewing mode—perfect for hands-free monitoring.
-            </div>
-        <div class="feature-image"><img src="screenshots/Display Settings.png" alt="Display Settings" style="width: 100%; border-radius: 4px;"></div>
+            <h2>Always-On Command Center</h2>
+            <p>Designed for dedicated monitoring stations. Enable <strong>Screen Always On</strong> to transform any device into a permanent energy terminal. Simply <strong>Double Tap</strong> to enter a focused viewing mode.</p>
+        </div>
+        <div class="feature-image"><img src="screenshots/Display Settings.png" alt="Display Settings"></div>
     </div>
 
     <div class="feature-item">
         <div class="feature-text">
             <span class="badge">Professional Management</span>
             <h2>Multi-Site Monitoring</h2>
-            <p>Manage your entire energy footprint by toggling between properties linked to your Tesla account. While each instance of Elite focuses on a single site for maximum precision, the app is designed for high-performance multi-window use.</p>
-            
-            <div class="tip-box">
-                <strong>Windows Multi-Window Support:</strong> To monitor and command multiple sites simultaneously, hold <strong>SHIFT + Left Click</strong> on the app icon or a property link to launch a new independent window for each location.
-            </div>
-             </div>
+            <p>Manage your entire energy footprint by toggling between properties linked to your Tesla account. Use <strong>SHIFT + Left Click</strong> on Windows to launch independent windows for each site.</p>
+        </div>
         <div class="feature-image">
-            <img src="screenshots/Property Selection.png" alt="Property Selection and Multi-Window View"style="width: 100%; border-radius: 4px;">
+            <img src="screenshots/Property Selection.png" alt="Property Selection">
         </div>
     </div>
-	<div class="feature-item">
+
+    <div class="feature-item">
         <div class="feature-text">
             <span class="badge">Data Intelligence</span>
             <h2>Deep Analytics & CSV Export</h2>
-            <p>Your energy data belongs to you. Elite captures high-resolution <strong>historical graphs</strong> of your solar production, grid usage, and battery cycles. Need to run your own numbers? Use the <strong>one-click CSV Export</strong> to download your raw energy logs. Perfect for spreadsheet wizards who want to track long-term ROI or audit utility bill accuracy.</p>
-        <div class="tip-box">
-                <strong>Live Graphing:</strong> Includes <strong>daily and monthly graphs</strong> that automatically update every 5 minutes while viewing to ensure your historical data is always current.
-            </div>
-		</div>
+            <p>Your energy data belongs to you. Elite captures high-resolution <strong>historical graphs</strong> and offers <strong>one-click CSV Export</strong> to download your raw energy logs.</p>
+        </div>
         <div class="feature-image">
-            <img src="screenshots/Analytics and Export.png" alt="Analytics Graphs and CSV Export" style="width: 100%; border-radius: 4px;">
+            <img src="screenshots/Analytics and Export.png" alt="Analytics Graphs">
         </div>
     </div>
-	    <div class="feature-item">
+
+    <div class="feature-item">
         <div class="feature-text">
             <span class="badge">Universal Accessibility</span>
             <h2>Adaptive Across All Devices</h2>
-            <p>Our <strong>Responsive UI engine</strong> automatically adapts to any screen size—supporting <strong>Portrait</strong> on mobile for quick checks and <strong>Landscape</strong> on tablets and desktops for a full command center view.</p>
+            <p>Our <strong>Responsive UI engine</strong> automatically adapts to any screen size—supporting <strong>Portrait</strong> on mobile and <strong>Landscape</strong> on tablets.</p>
         </div>
         <div class="feature-image">
-            <img src="screenshots/Multi-Device View.png" alt="App responsive on Mobile, Tablet and Desktop" style="width: 100%; border-radius: 4px;">
+            <img src="screenshots/Multi-Device View.png" alt="Multi-Device View">
         </div>
     </div>
 
@@ -110,10 +179,10 @@
         <div class="feature-text">
             <span class="badge">Platform Availability</span>
             <h2>Where to Use Elite</h2>
-            <p>Full support for <strong>Windows 10/11</strong>, <strong>Xbox</strong>, and <strong>Windows Phone</strong>. Stay tuned: <strong>Android and iOS versions are currently in development</strong> and coming soon.</p>
+            <p>Full support for <strong>Windows 10/11</strong>, <strong>Xbox</strong>, and <strong>Windows Phone</strong>. Android and iOS versions are currently in development.</p>
         </div>
         <div class="feature-image">
-            <img src="screenshots/Platform Support.png" alt="App running on Windows, Xbox, and Windows Phone" style="width: 100%; border-radius: 4px;">
+            <img src="screenshots/Platform Support.png" alt="Platform Support">
         </div>
     </div>
 
@@ -121,20 +190,21 @@
         <div class="feature-text">
             <span class="badge">Pure Data</span>
             <h2>Zero Ads. Just Data.</h2>
-            <p>Tesla Powerwall Elite is a <strong>100% ad-free experience</strong>. No banners, no pop-ups, and no distractions—just the clean, high-resolution energy insights you need.</p>
+            <p>Tesla Powerwall Elite is a <strong>100% ad-free experience</strong>. No banners, no pop-ups, and no distractions—just clean energy insights.</p>
         </div>
         <div class="feature-image">
-            <img src="screenshots/ad-free.png" alt="Clean Ad-Free Interface" style="width: 100%; border-radius: 4px;">
+            <img src="screenshots/ad-free.png" alt="Clean Interface">
         </div>
     </div>
-	    <div class="feature-item">
+
+    <div class="feature-item">
         <div class="feature-text">
             <span class="badge">Risk-Free Exploration</span>
             <h2>Safe Demonstration Mode</h2>
-            <p>New to Elite? Use <strong>Demonstration Mode</strong> to explore every corner of the interface and see exactly what the app can do without sending a single command to your actual hardware.</p>
+            <p>New to Elite? Use <strong>Demonstration Mode</strong> to explore every corner of the interface without sending commands to actual hardware.</p>
         </div>
         <div class="feature-image">
-            <img src="screenshots/demo-mode.png" alt="Demonstration Mode Interface" style="width: 100%; border-radius: 4px;">
+            <img src="screenshots/demo-mode.png" alt="Demonstration Mode">
         </div>
     </div>
 </div>
